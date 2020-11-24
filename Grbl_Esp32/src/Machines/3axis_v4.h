@@ -27,7 +27,7 @@
 */
 
 #define MACHINE_NAME            "ESP32_V4"
-
+/*
 #define X_STEP_PIN              GPIO_NUM_12
 #define X_DIRECTION_PIN         GPIO_NUM_14
 #define Y_STEP_PIN              GPIO_NUM_26
@@ -39,19 +39,6 @@
 #define Y_LIMIT_PIN             GPIO_NUM_4
 #define Z_LIMIT_PIN             GPIO_NUM_16
 
-#ifdef HOMING_CYCLE_0
-    #undef HOMING_CYCLE_0
-#endif
-#define HOMING_CYCLE_0 bit(Z_AXIS) // Z first
-
-#ifdef HOMING_CYCLE_1
-    #undef HOMING_CYCLE_1
-#endif
-#define HOMING_CYCLE_1 (bit(X_AXIS)|bit(Y_AXIS))
-
-#ifdef HOMING_CYCLE_2
-    #undef HOMING_CYCLE_2
-#endif
 
 // OK to comment out to use pin for other features
 #define STEPPERS_DISABLE_PIN    GPIO_NUM_13
@@ -63,7 +50,30 @@
 #define COOLANT_MIST_PIN        GPIO_NUM_21  // labeled Mist
 #define COOLANT_FLOOD_PIN       GPIO_NUM_25  // labeled Flood
 #define PROBE_PIN               GPIO_NUM_32  // labeled Probe
+*/
 
+#define X_STEP_PIN              GPIO_NUM_27
+#define X_DIRECTION_PIN         GPIO_NUM_13
+#define Y_STEP_PIN              GPIO_NUM_32
+#define Y_DIRECTION_PIN         GPIO_NUM_12
+#define Z_STEP_PIN              GPIO_NUM_26
+#define Z_DIRECTION_PIN         GPIO_NUM_14
+
+//#define X_LIMIT_PIN             GPIO_NUM_26
+//#define Y_LIMIT_PIN             GPIO_NUM_27
+//#define Z_LIMIT_PIN             GPIO_NUM_14
+
+
+// OK to comment out to use pin for other features
+#define STEPPERS_DISABLE_PIN    GPIO_NUM_25
+
+#define SPINDLE_TYPE            SpindleType::BESC
+#define SPINDLE_OUTPUT_PIN      GPIO_NUM_21   // labeled SpinPWM
+#define SPINDLE_ENABLE_PIN      GPIO_NUM_21  // labeled SpinEnbl
+
+//#define COOLANT_MIST_PIN        GPIO_NUM_19  // labeled Mist (Used by SD Card)
+//#define COOLANT_FLOOD_PIN       GPIO_NUM_18  // labeled Flood (Used by SD Card)
+#define PROBE_PIN               GPIO_NUM_22  // labeled Probe
 
 /*
 #define CONTROL_SAFETY_DOOR_PIN GPIO_NUM_35  // labeled Door,  needs external pullup
